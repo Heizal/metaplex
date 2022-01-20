@@ -78,7 +78,7 @@ const UserActions = (props: { mobile?: boolean; onClick?: any }) => {
             {canCreate && (
               <>
                 <Link to={`/art/create`} style={{ width: '100%' }}>
-                  <Button className="metaplex-button-default" style={btnStyle}>
+                  <Button className="nftbook-button-default" style={btnStyle}>
                     Create
                   </Button>
                 </Link>
@@ -86,7 +86,7 @@ const UserActions = (props: { mobile?: boolean; onClick?: any }) => {
               </>
             )}
             <Link to={`/auction/create/0`} style={{ width: '100%' }}>
-              <Button className="metaplex-button-default" style={btnStyle}>
+              <Button className="nftbook-button-default" style={btnStyle}>
                 Sell
               </Button>
             </Link>
@@ -295,7 +295,7 @@ export const CurrentUserBadge = (props: {
                   }}
                 >
                   <Button
-                    className="metaplex-button-default"
+                    className="nftbook-button-default"
                     onClick={() => setShowAddFundsModal(true)}
                     style={btnStyle}
                   >
@@ -303,7 +303,7 @@ export const CurrentUserBadge = (props: {
                   </Button>
                   &nbsp;&nbsp;
                   <Button
-                    className="metaplex-button-default"
+                    className="nftbook-button-default"
                     onClick={disconnect}
                     style={btnStyle}
                   >
@@ -345,6 +345,8 @@ export const Cog = () => {
   const routerSearchParams = useQuerySearch();
   const { setVisible } = useWalletModal();
   const open = useCallback(() => setVisible(true), [setVisible]);
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
 
   return (
     <div className="wallet-wrapper">
@@ -404,7 +406,7 @@ export const Cog = () => {
             </Select>
 
             <Button
-              className="metaplex-button-default"
+              className="nftbook-button-default"
               style={btnStyle}
               onClick={open}
             >
@@ -414,7 +416,8 @@ export const Cog = () => {
         }
       >
         <Button className="wallet-key">
-          <img src="/cog.svg" />
+          {/* asset prefix */}
+          <img src={ASSET_PREFIX +"/cog.svg"} />
         </Button>
       </Popover>
     </div>
@@ -430,6 +433,8 @@ export const CurrentUserBadgeMobile = (props: {
   const { wallet, publicKey, disconnect } = useWallet();
   const { account } = useNativeAccount();
   const solPrice = useSolPrice();
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
 
   const [showAddFundsModal, setShowAddFundsModal] = useState<Boolean>(false);
 
@@ -476,7 +481,8 @@ export const CurrentUserBadgeMobile = (props: {
         <span className="balance-title">Balance</span>
         <span>
           <span className="sol-img-wrapper">
-            <img src="/sol.svg" width="10" />
+            {/* asset prefix */}
+            <img src={ASSET_PREFIX +"/sol.svg"} width="10" />
           </span>{' '}
           {formatNumber.format(balance)}&nbsp;&nbsp; SOL{' '}
           <span

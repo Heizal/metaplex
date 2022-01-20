@@ -6,7 +6,7 @@ import {
   METADATA_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
   SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
-  METAPLEX_ID,
+  NFTBOOK_ID,
   BPF_UPGRADE_LOADER_ID,
   SYSTEM,
   MEMO_ID,
@@ -21,14 +21,14 @@ export const getStoreID = async (storeOwnerAddress?: string) => {
     return undefined;
   }
 
-  console.log('Store owner', storeOwnerAddress, METAPLEX_ID);
+  console.log('Store owner', storeOwnerAddress, NFTBOOK_ID);
   const programs = await findProgramAddress(
     [
       Buffer.from('metaplex'),
-      toPublicKey(METAPLEX_ID).toBuffer(),
+      toPublicKey(NFTBOOK_ID).toBuffer(),
       toPublicKey(storeOwnerAddress).toBuffer(),
     ],
-    toPublicKey(METAPLEX_ID),
+    toPublicKey(NFTBOOK_ID),
   );
   const storeAddress = programs[0];
 
@@ -51,7 +51,7 @@ export const programIds = () => {
     memo: MEMO_ID,
     vault: VAULT_ID,
     auction: AUCTION_ID,
-    metaplex: METAPLEX_ID,
+    metaplex: NFTBOOK_ID,
     pack_create: PACK_CREATE_ID,
     oracle: ORACLE_ID,
     store: STORE,

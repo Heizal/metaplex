@@ -564,9 +564,12 @@ export function Notifications() {
     <span>No notifications</span>
   );
 
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
+
   const justContent = (
     <Popover placement="bottomLeft" content={content} trigger="click">
-      <img src={'/bell.svg'} style={{ cursor: 'pointer' }} />
+      <img src={ASSET_PREFIX +'/bell.svg'} style={{ cursor: 'pointer' }} />
       {!!notifications.length && <div className="mobile-notification">{notifications.length - 1}</div>}
     </Popover>
   );

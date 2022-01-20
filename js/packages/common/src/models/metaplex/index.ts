@@ -38,7 +38,7 @@ export * from './redeemPrintingV2Bid';
 export * from './withdrawMasterEdition';
 export * from './deprecatedStates';
 
-export const METAPLEX_PREFIX = 'metaplex';
+export const NFTBOOK_PREFIX = 'metaplex';
 export const INDEX = 'index';
 export const CACHE = 'cache';
 export const TOTALS = 'totals';
@@ -1159,7 +1159,7 @@ export async function getAuctionManagerKey(
 
   return (
     await findProgramAddress(
-      [Buffer.from(METAPLEX_PREFIX), toPublicKey(auctionKey).toBuffer()],
+      [Buffer.from(NFTBOOK_PREFIX), toPublicKey(auctionKey).toBuffer()],
       toPublicKey(PROGRAM_IDS.metaplex),
     )
   )[0];
@@ -1195,7 +1195,7 @@ export async function getBidRedemption(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(auctionKey).toBuffer(),
         toPublicKey(bidMetadata).toBuffer(),
       ],
@@ -1237,7 +1237,7 @@ export async function getOriginalAuthority(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(auctionKey).toBuffer(),
         toPublicKey(metadata).toBuffer(),
       ],
@@ -1269,7 +1269,7 @@ export async function getWhitelistedCreator(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(store).toBuffer(),
         toPublicKey(creator).toBuffer(),
@@ -1292,7 +1292,7 @@ export async function getPrizeTrackingTicket(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(auctionManager).toBuffer(),
         toPublicKey(mint).toBuffer(),
@@ -1312,7 +1312,7 @@ export async function getAuctionWinnerTokenTypeTracker(auctionManager: string) {
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(auctionManager).toBuffer(),
         Buffer.from(TOTALS),
@@ -1335,7 +1335,7 @@ export async function getSafetyDepositConfig(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(auctionManager).toBuffer(),
         toPublicKey(safetyDeposit).toBuffer(),
@@ -1355,7 +1355,7 @@ export async function getStoreIndexer(page: number) {
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(store).toBuffer(),
         Buffer.from(INDEX),
@@ -1376,7 +1376,7 @@ export async function getAuctionCache(auction: StringPublicKey) {
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(store).toBuffer(),
         toPublicKey(auction).toBuffer(),
@@ -1400,7 +1400,7 @@ export async function getPayoutTicket(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(auctionManager).toBuffer(),
         Buffer.from(
           winnerConfigIndex !== null && winnerConfigIndex !== undefined

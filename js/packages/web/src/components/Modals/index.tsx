@@ -13,12 +13,14 @@ export const ModalLayout: React.FC<ModalProps> = (
     isModalVisible,
     children
 }) => {
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
   return (
     <Modal
       onCancel={onClose}
       footer={null}
       visible={isModalVisible}
-      closeIcon={<img src={'/modals/close.svg'} />}
+      closeIcon={<img src={ASSET_PREFIX +'/modals/close.svg'} />}
     >
       {children}
     </Modal>

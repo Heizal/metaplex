@@ -24,7 +24,7 @@ import {
   StoreIndexer,
 } from '../../models';
 import { ProcessAccountsFunc } from './types';
-import { METAPLEX_ID, programIds, pubkeyToString } from '../../utils';
+import { NFTBOOK_ID, programIds, pubkeyToString } from '../../utils';
 import { ParsedAccount } from '../accounts';
 import { cache } from '../accounts';
 import names from '../../config/userNames.json';
@@ -190,7 +190,7 @@ export const processMetaplexAccounts: ProcessAccountsFunc = async (
 };
 
 const isMetaplexAccount = (account: AccountInfo<Buffer>) =>
-  account && pubkeyToString(account.owner) === METAPLEX_ID;
+  account && pubkeyToString(account.owner) === NFTBOOK_ID;
 
 const isAuctionManagerV1Account = (account: AccountInfo<Buffer>) =>
   account.data[0] === MetaplexKey.AuctionManagerV1;

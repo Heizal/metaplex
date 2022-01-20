@@ -2,7 +2,7 @@ import { Connection } from '@solana/web3.js';
 import {
   AUCTION_ID,
   METADATA_PROGRAM_ID,
-  METAPLEX_ID,
+  NFTBOOK_ID,
   toPublicKey,
   VAULT_ID,
 } from '../../utils';
@@ -43,7 +43,7 @@ export const subscribeAccountsChange = (
 
   subscriptions.push(
     connection.onProgramAccountChange(
-      toPublicKey(METAPLEX_ID),
+      toPublicKey(NFTBOOK_ID),
       onChangeAccount(processMetaplexAccounts, updateStateValue),
     ),
   );

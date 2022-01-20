@@ -3,7 +3,7 @@ import {
   AuctionManagerStatus,
   BidRedemptionTicket,
   MetaplexKey,
-  METAPLEX_PREFIX,
+  NFTBOOK_PREFIX,
   NonWinningConstraint,
   WinningConfigType,
   WinningConstraint,
@@ -169,7 +169,7 @@ export async function getSafetyDepositBoxValidationTicket(
   return (
     await findProgramAddress(
       [
-        Buffer.from(METAPLEX_PREFIX),
+        Buffer.from(NFTBOOK_PREFIX),
         toPublicKey(PROGRAM_IDS.metaplex).toBuffer(),
         toPublicKey(auctionManager).toBuffer(),
         toPublicKey(safetyDepositBox).toBuffer(),

@@ -94,9 +94,9 @@ export const Footer = () => {
         {footerConf.showShopName ? (
           <div className="footer-community">
             <div className="sub-header">
-              {LABELS.STORE_NAME} NFT Marketplace
+              {LABELS.STORE_NAME} Marketplace
             </div>
-            <div className="footer-link">Powered by Metaplex and Solana</div>
+            <div className="footer-link">Powered by NFT-Book and Solana</div>
           </div>
         ) : null}
         {footerConf.components.map(component => (

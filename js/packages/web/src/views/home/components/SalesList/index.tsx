@@ -26,13 +26,15 @@ export const SalesListView = () => {
   const { isLoading } = useMeta();
   const { connected } = useWallet();
   const { auctions, hasResaleAuctions } = useAuctionsList(activeKey);
+  //asset prefix
+  const {ASSET_PREFIX} = process.env;
 
   return (
     <>
       <Banner
-        src="/main-banner.svg"
-        headingText="The amazing world of Metaplex."
-        subHeadingText="Buy exclusive Metaplex NFTs."
+        src={ASSET_PREFIX +"/nft-book-logo.png"}
+        headingText="The amazing world of NFT-Book."
+        subHeadingText="Buy exclusive NFT-Book NFTs."
         actionComponent={<HowToBuyModal buttonClassName="secondary-btn" />}
         useBannerBg
       />

@@ -74,7 +74,7 @@ export const VAULT_ID =
 export const AUCTION_ID =
   'auctxRXPeJoc4817jDhf4HbjnhEcr1cCXenosMhK5R8' as StringPublicKey;
 
-export const METAPLEX_ID =
+export const NFTBOOK_ID =
   'p1exdMJcjVao65QdewkaZRUnU6VPSXhus9n2GzWfh98' as StringPublicKey;
 
 export const PACK_CREATE_ID = new PublicKey(

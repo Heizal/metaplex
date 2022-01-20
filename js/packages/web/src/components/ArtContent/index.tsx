@@ -54,10 +54,12 @@ export const CachedImageContent = ({
   style?: React.CSSProperties;
 }) => {
   const { cachedBlob } = useCachedImage(uri || '');
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
 
   return (
     <Image
-      fallback="image-placeholder.svg"
+      fallback={ASSET_PREFIX +"image-placeholder.svg"}
       src={cachedBlob}
       preview={preview}
       wrapperClassName={className}

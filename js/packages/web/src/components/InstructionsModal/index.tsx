@@ -95,6 +95,8 @@ export const InstructionsModal: React.FC<ModalProps> = ({
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
 
   return (
     <>
@@ -108,7 +110,7 @@ export const InstructionsModal: React.FC<ModalProps> = ({
         onCancel={handleCancel}
         footer={null}
         className={'modal-box instructions-modal'}
-        closeIcon={<img src={'/modals/close.svg'} />}
+        closeIcon={<img src={ASSET_PREFIX +'/modals/close.svg'} />}
       >
         <ModalContent>
           <ContentCard

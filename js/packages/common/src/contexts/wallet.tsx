@@ -70,7 +70,7 @@ export const WalletModal: FC = () => {
       </span>
 
       <Button
-        className="phantom-button metaplex-button"
+        className="phantom-button nftbook-button"
         onClick={() => {
           console.log(phatomWallet.name);
           select(phatomWallet.name);
@@ -140,7 +140,7 @@ export const WalletModal: FC = () => {
             return (
               <Button
                 key={idx}
-                className="metaplex-button w100"
+                className="nftbook-button w100"
                 style={{
                   marginBottom: 5,
                 }}

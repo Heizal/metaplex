@@ -720,7 +720,7 @@ export const AuctionCard = ({
                 </div>
                 <div className={'bid-buttons'}>
                   <Button
-                    className="metaplex-button-default"
+                    className="nftbook-button-default"
                     style={{
                       background: 'transparent',
                       color: 'white',

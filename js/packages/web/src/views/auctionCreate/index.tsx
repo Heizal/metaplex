@@ -718,7 +718,7 @@ const CategoryStep = (props: {
       <Row className="call-to-action">
         <h2>List an item</h2>
         <p>
-          First time listing on Metaplex? <a>Read our sellers' guide.</a>
+          First time listing on NFT-Book? <a>Read our sellers' guide.</a>
         </p>
       </Row>
       <Row justify={width < 768 ? 'center' : 'start'}>
@@ -2055,7 +2055,7 @@ const WaitingStep = (props: {
     >
       <Progress type="circle" percent={progress} />
       <div className="waiting-title">
-        Your creation is being listed with Metaplex...
+        Your creation is being listed with NFT-Book...
       </div>
       <div className="waiting-subtitle">This can take up to 30 seconds.</div>
     </div>
@@ -2073,7 +2073,7 @@ const Congrats = (props: {
 
   const newTweetURL = () => {
     const params = {
-      text: "I've created a new NFT auction on Metaplex, check it out!",
+      text: "I've created a new NFT auction on NFT-Book, check it out!",
       url: `${
         window.location.origin
       }/#/auction/${props.auction?.auction.toString()}`,
@@ -2100,14 +2100,14 @@ const Congrats = (props: {
         </div>
         <div className="congrats-button-container">
           <Button
-            className="metaplex-button"
+            className="nftbook-button"
             onClick={_ => window.open(newTweetURL(), '_blank')}
           >
             <span>Share it on Twitter</span>
             <span>&gt;</span>
           </Button>
           <Button
-            className="metaplex-button"
+            className="nftbook-button"
             onClick={() => {
                 history.push(`/`);
                 history.go(0);

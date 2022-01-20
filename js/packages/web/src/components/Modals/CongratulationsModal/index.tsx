@@ -30,10 +30,12 @@ const CongratulationsContent: React.FC<CongratulationsProps> = (
     onClose();
   }
 
+  const {ASSET_PREFIX} = process.env;
+
   return (
     <div className="congratulations-root">
       <div className="emoji-frame">
-        <img src="/modals/confetti-emoji.svg" />
+        <img src={ASSET_PREFIX +"/modals/confetti-emoji.svg"} />
       </div>
       <span className="title">{title || 'Congratulations'}</span>
       <span className="content">{content}</span>

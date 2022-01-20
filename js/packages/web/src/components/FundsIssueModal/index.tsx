@@ -13,6 +13,8 @@ export const FundsIssueModal = (props: {
 }) => {
   const {currentFunds: balance, minimumFunds, message} = props
   const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == WRAPPED_SOL_MINT.toBase58())[0]
+  // asset prefix
+  const {ASSET_PREFIX} = process.env;
   return (
       <MetaplexModal
         title={"Transaction Alert"}
@@ -20,7 +22,7 @@ export const FundsIssueModal = (props: {
         footer={null}
         onCancel={props.onClose}
         className={"fundsissue"}
-        closeIcon={<img src={'/modals/close.svg'} />}
+        closeIcon={<img src={ASSET_PREFIX +'/modals/close.svg'} />}
       >
         <b className={"issue-title"}>Insufficient funds</b>
         <div className="card-bid-info">

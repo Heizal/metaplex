@@ -1,7 +1,7 @@
 import {
   AUCTION_ID,
   METADATA_PROGRAM_ID,
-  METAPLEX_ID,
+  NFTBOOK_ID,
   StringPublicKey,
   toPublicKey,
   VAULT_ID,
@@ -239,7 +239,7 @@ export const pullPayoutTickets = async (
         await fn(account, updateTemp);
       }
     };
-  getProgramAccounts(connection, METAPLEX_ID, {
+  getProgramAccounts(connection, NFTBOOK_ID, {
     filters: [
       {
         dataSize: MAX_PAYOUT_TICKET_SIZE,
@@ -448,7 +448,7 @@ export const pullAuctionSubaccounts = async (
     }).then(forEach(processVaultData)),
 
     // bid redemptions
-    getProgramAccounts(connection, METAPLEX_ID, {
+    getProgramAccounts(connection, NFTBOOK_ID, {
       filters: [
         {
           memcmp: {
@@ -459,7 +459,7 @@ export const pullAuctionSubaccounts = async (
       ],
     }).then(forEach(processMetaplexAccounts)),
     // bdis where you arent winner
-    getProgramAccounts(connection, METAPLEX_ID, {
+    getProgramAccounts(connection, NFTBOOK_ID, {
       filters: [
         {
           memcmp: {
@@ -470,7 +470,7 @@ export const pullAuctionSubaccounts = async (
       ],
     }).then(forEach(processMetaplexAccounts)),
     // safety deposit configs
-    getProgramAccounts(connection, METAPLEX_ID, {
+    getProgramAccounts(connection, NFTBOOK_ID, {
       filters: [
         {
           memcmp: {
@@ -483,7 +483,7 @@ export const pullAuctionSubaccounts = async (
     // prize tracking tickets
     ...cache.metadata
       .map(md =>
-        getProgramAccounts(connection, METAPLEX_ID, {
+        getProgramAccounts(connection, NFTBOOK_ID, {
           filters: [
             {
               memcmp: {
@@ -681,7 +681,7 @@ export const pullPage = async (
 
     if (page == 0) {
       console.log('-------->Page 0, pulling creators and store');
-      await getProgramAccounts(connection, METAPLEX_ID, {
+      await getProgramAccounts(connection, NFTBOOK_ID, {
         filters: [
           {
             dataSize: MAX_WHITELISTED_CREATOR_SIZE,
@@ -857,7 +857,7 @@ export const limitedLoadAccounts = async (connection: Connection) => {
     ),
     // bid redemptions
     ...WHITELISTED_AUCTION_MANAGER.map(a =>
-      getProgramAccounts(connection, METAPLEX_ID, {
+      getProgramAccounts(connection, NFTBOOK_ID, {
         filters: [
           {
             memcmp: {
@@ -870,7 +870,7 @@ export const limitedLoadAccounts = async (connection: Connection) => {
     ),
     // safety deposit configs
     ...WHITELISTED_AUCTION_MANAGER.map(a =>
-      getProgramAccounts(connection, METAPLEX_ID, {
+      getProgramAccounts(connection, NFTBOOK_ID, {
         filters: [
           {
             memcmp: {
@@ -886,7 +886,7 @@ export const limitedLoadAccounts = async (connection: Connection) => {
       .map(key =>
         AUCTION_TO_METADATA[key]
           .map(md =>
-            getProgramAccounts(connection, METAPLEX_ID, {
+            getProgramAccounts(connection, NFTBOOK_ID, {
               filters: [
                 {
                   memcmp: {
@@ -901,7 +901,7 @@ export const limitedLoadAccounts = async (connection: Connection) => {
       )
       .flat(),
     // whitelisted creators
-    getProgramAccounts(connection, METAPLEX_ID, {
+    getProgramAccounts(connection, NFTBOOK_ID, {
       filters: [
         {
           dataSize: MAX_WHITELISTED_CREATOR_SIZE,
@@ -938,11 +938,11 @@ export const loadAccounts = async (connection: Connection) => {
       forEachAccount(processAuctions),
     );
   const loadMetaplex = () =>
-    getProgramAccounts(connection, METAPLEX_ID).then(
+    getProgramAccounts(connection, NFTBOOK_ID).then(
       forEachAccount(processMetaplexAccounts),
     );
   const loadCreators = () =>
-    getProgramAccounts(connection, METAPLEX_ID, {
+    getProgramAccounts(connection, NFTBOOK_ID, {
       filters: [
         {
           dataSize: MAX_WHITELISTED_CREATOR_SIZE,
